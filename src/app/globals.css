@@ -5,3 +5,15 @@
 body {
   background-color: #ffeeee;
 }
+
+.loading-height {
+  height: calc(100vh - 7rem);
+}
+
+.delay-200ms {
+  animation-delay: 0.2s;
+}
+
+.delay-400ms {
+  animation-delay: 0.4s;
+}
