@@ -14,10 +14,13 @@ async function getMovies(page: string){
   }
 }
 
-export default async function Home({ 
-  searchParams
-}: { searchParams: { page?: string } }) {
-  const { page } = await searchParams
+export default async function Home(
+  props: { 
+    searchParams: Promise<{ page: string }>
+  }
+) {
+  const { page } = await props.searchParams
+  console.log(page)
   const movieList: MovieProps[] = await getMovies(page || "1");
 
   return (
