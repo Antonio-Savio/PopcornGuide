@@ -15,12 +15,12 @@ async function getData(title: string){
     }
 }
 
-export default async function Search({
-    params
-}: {
-    params: { title: string }
-}){
-    const { title } = await params
+export default async function Search(
+    props: {
+        params: Promise<{title: string}> 
+    }
+){
+    const { title } = await props.params
     const movies: MovieProps[] = await getData(title);
 
     return(
