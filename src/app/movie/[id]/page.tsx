@@ -56,7 +56,7 @@ export async function generateMetadata(props: PropsParams): Promise<Metadata> {
 
 async function getData(id: string){
     try {
-        const res = await fetch(`${process.env.NEXT_API_URL}/movie/${id}?api_key=${process.env.NEXT_API_KEY}`, { next: { revalidate: 320 } })
+        const res = await fetch(`${process.env.NEXT_API_URL}/movie/${id}?include_adult=false&api_key=${process.env.NEXT_API_KEY}`, { next: { revalidate: 320 } })
         return await res.json();
     } catch(err){
         throw new Error("Failed to fetch data")

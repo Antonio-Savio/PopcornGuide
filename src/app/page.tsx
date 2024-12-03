@@ -6,7 +6,7 @@ import { Pagination } from "@/components/pagination";
 
 async function getMovies(page: string){
   try{
-    const res = await fetch(`${process.env.NEXT_API_URL}/discover/movie?api_key=${process.env.NEXT_API_KEY}&include_adult=true&include_video=true&page=${page}&sort_by=popularity.desc`, { next: { revalidate: 320 } })
+    const res = await fetch(`${process.env.NEXT_API_URL}/discover/movie?api_key=${process.env.NEXT_API_KEY}&include_adult=false&include_video=true&page=${page}&sort_by=popularity.desc`, { next: { revalidate: 320 } })
     const list = await res.json();
     return list.results;
   } catch{
