@@ -10,12 +10,13 @@ import { Metadata } from "next";
 import { Input } from "@/components/input";
 
 interface PropsParams{
-    params: {
+    params: Promise<{
         id: string
-    }
+    }>
 }
 
-export async function generateMetadata({ params }: PropsParams): Promise<Metadata> {
+export async function generateMetadata(props: PropsParams): Promise<Metadata> {
+    const params = await props.params;
     const { id } = params
 
     try {
@@ -62,11 +63,12 @@ async function getData(id: string){
     }
 }
 
-export default async function Movie({
-    params
-}: {
-    params: { id: string }
-}){
+export default async function Movie(
+    props: {
+        params: Promise<{ id: string }>
+    }
+) {
+    const params = await props.params;
     const { id } = params
     const data: MovieDetailProps = await getData(id);
 
