@@ -25,7 +25,7 @@ export function MovieCard({ movie }: MovieCardProps){
                             <Image
                                 src={`${process.env.NEXT_IMAGE_URL}${movie.poster_path}`}
                                 alt={movie.title}
-                                quality={100}
+                                quality={40}
                                 priority
                                 fill={true}
                                 className="object-cover rounded-md group-hover:brightness-50 transition"

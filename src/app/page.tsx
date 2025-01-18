@@ -20,7 +20,6 @@ export default async function Home(
   }
 ) {
   const { page } = await props.searchParams
-  console.log(page)
   const movieList: MovieProps[] = await getMovies(page || "1");
 
   return (

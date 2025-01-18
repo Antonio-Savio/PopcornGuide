@@ -94,7 +94,7 @@ export default async function Movie(
                         <Image
                             src={`${process.env.NEXT_IMAGE_URL}${data.poster_path}`}
                             alt={data.title}
-                            quality={100}
+                            quality={70}
                             priority={true}
                             fill={true}
                             className="object-cover rounded-md hover:scale-105 transition"
