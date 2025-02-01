@@ -9,6 +9,7 @@
 
 <section id="pt">
 
+## 💡 Sobre
 Plataforma que lista os filmes em destaque no momento. Pesquise os seus filmes prediletos, faça login com sua conta Google, ou Twitter, e adicione aos favoritos clicando no ♥️. Você pode ver os filmes salvos na opção ‘Favorites’. Cada filme possui um página com detalhes, tais como descrição do filme, ano de lançamento, duração, gêneros e número de estrelas.
 
 ## 🌎 Acesse a plataforma
@@ -19,27 +20,54 @@ Plataforma que lista os filmes em destaque no momento. Pesquise os seus filmes p
 <img width="350px" src="public/popcornguide-mobile.gif"alt="Prévia em celular PopcornGuide" />
 
 ## ✅ Funcionalidades
-- Consumo da API do TMDB.
-- Tela principal com filmes em destaque do momento.
-- Paginação.
-- Pesquisa de filmes por palavras-chave.
-- Login social com o Google e Twitter usando Nextauth.js.
-- Botão em formato de coração para salvar filmes favoritos.
-- Os filmes salvos são armazenados em um banco no Firebase e exibidos na página de 'Favorites' em ordem de data de salvamento.
-- Apenas usuários logados podem salvar os favoritos.
-- Caso o usuário não logado tente acessar a aba de 'Favorites', ou clique no '♥️' , ele será redirecionado para tela de login.
-- Página de detalhes, com dados como ano de lançamento, duração, gêneros, países de produção, número de estrelas e o mesmo botão de Favorito.
-- Componentes de card do filme, input de pesquisa,  botão de favorito e header reaproveitados em páginas diferentes.
-- Metadatas dinâmicas para cada filme.
-- Loader animado.
+- **Consumo da API** do TMDB.
+- Tela principal com **filmes em destaque** do momento.
+- **Paginação**.
+- **Pesquisa de filmes** por palavras-chave.
+- **Login social** com o Google e Twitter usando Nextauth.js.
+- Botão em formato de coração para **salvar filmes favoritos**.
+- Os filmes salvos são armazenados em um **banco no Firebase** e exibidos na página de 'Favorites' em ordem de data de salvamento.
+- **Proteção de rotas**:
+  - Apenas **usuários logados** podem salvar os favoritos.
+  - Caso o usuário não logado tente acessar a aba de 'Favorites', ou clique no '♥️' , ele será **redirecionado** para tela de login.
+- **Página de detalhes**, com dados como ano de lançamento, duração, gêneros, países de produção, número de estrelas e o mesmo botão de Favorito.
+- Componentes de card do filme, input de pesquisa, botão de favorito e header **reaproveitados** em páginas diferentes.
+- **Metadatas dinâmicas** para cada filme.
+- **Loader animado**.
 
 ## ⚙️ Tecnologias
-- Next.js: framework React que permite criação nativa de rotas e renderização ao lado do servidor. Junto com todas as funcionalidades do React, se torna uma poderosa ferramenta front-end.
-- Nextauth.js: para criar autenticação de usuários com login social usando os providers do Google e Twitter (X).
-- TypeScript: garante a segurança de tipos, detecta erros durante o desenvolvimento, melhora a qualidade do código e aumenta a produtividade.
-- Firebase: foi usado o Cloud Firebase, um banco não-relacional para armazenar dados dos filmes favoritos.
-- Tailwind CSS: framework CSS baseado em classes. Usado para estilizar os componentes e definir layout flexbox/grid.
-- API do The Movie Database (TMDB): API com diversos endpoints com imagens e dados de filmes.
+- **Next.js**: framework React que permite criação nativa de rotas e renderização ao lado do servidor. Junto com todas as funcionalidades do React, se torna uma poderosa ferramenta front-end.
+- **Nextauth.js**: para criar autenticação de usuários com login social usando os providers do Google e Twitter (X).
+- **TypeScript**: garante a segurança de tipos, detecta erros durante o desenvolvimento, melhora a qualidade do código e aumenta a produtividade.
+- **Firebase**: foi usado o Cloud Firebase, um banco não-relacional para armazenar dados dos filmes favoritos.
+- **Tailwind CSS**: framework CSS baseado em classes. Usado para estilizar os componentes e definir layout flexbox/grid.
+- **API do The Movie Database (TMDB)**: API com diversos endpoints com imagens e dados de filmes.
+
+## 📁 Estrutura do Projeto
+O projeto está organizado na seguinte estrutura:
+
+```bash
+public/ # Arquivos estáticos, como imagens.
+src/
+├── app/ # Arquivos principais e rotas
+│  ├── api/auth/[...nextauth]/ # Rota de autenticação (NextAuth)
+│  ├── favorites/ # Página de favoritos
+│  ├── login/ # Página de login
+│  ├── movie/[id]/ # Página dinâmica de detalhes do filme
+│  ├── search/[title]/ # Página dinâmica de busca de filmes
+│  ├── profile/ # Página de perfil do usuário
+│  └── layout.tsx # Layout principal
+│  └── loading.tsx # Componente de carregamento
+│  └── not-found.tsx # Página "não encontrado"
+│  └── page.tsx # Página inicial
+├── components/ # Componentes reutilizáveis
+├── services/
+│  └── firebaseConnection.ts # Conexão com o Firebase
+├── utils/ # funções e tipagens reutilizáveis
+│  ├── currency/ # Utilitários de formatação de moeda
+│  ├── time/ # Utilitários de conversão de tempo
+│  ├── types/ # Tipos relacionados a filmes
+```
 
 ## 🚀 Como rodar o projeto
   ### Requisitos
@@ -61,8 +89,8 @@ npm install
 
 3. Crie um arquivo .env na raiz do projeto e adicione todas suas configurações da API, providers de autenticação, do NextAuth.js e Firebase:
 ```bash
-NEXT_API_URL=https://api.themoviedb.org/3
-NEXT_IMAGE_URL=https://image.tmdb.org/t/p/original
+NEXT_API_URL=https://api.themoviedb.org/3 # Checar documentação da API
+NEXT_IMAGE_URL=https://image.tmdb.org/t/p/original # Checar documentação da API
 NEXT_API_KEY='YOUR_API_KEY_HERE'
 
 NEXTAUTH_URL=http://localhost:3000
@@ -105,6 +133,7 @@ Você é livre para usar, modificar e distribuir este software para fins pessoai
 
 <section id="eng">
 
+## 💡 About
 Platform that lists the currently trending movies. Search for your favorite movies, log in with your Google or Twitter account, and add to your favorites by clicking on the ♥️. You can view saved movies in the 'Favorites' option. Each movie has a details page with information such as movie description, release year, length, genres, and number of stars.
 
 ## 🌎 Access the platform
@@ -115,27 +144,54 @@ Platform that lists the currently trending movies. Search for your favorite movi
 <img width="350px" src="public/popcornguide-mobile.gif" alt="PopcornGuide Mobile Preview" />
 
 ## ✅ Features:
-- Consumption of the TMDB API.
-- Main page with currently trending movies.
-- Pagination.
-- Movie search by keywords.
-- Social login with Google and Twitter using Nextauth.js.
-- Heart-shaped button to save favorite movies.
-- Saved movies are stored in a Firebase database and displayed on the 'Favorites' page in order of the date they were saved.
-- Only logged-in users can save favorites.
-- If a non-logged-in user tries to access the 'Favorites' tab or clicks on the '♥️' button, they will be redirected to the login page.
-- Details page with information such as release year, duration, genres, production countries, number of stars, and the same Favorite button.
-- Reusable components for movie cards, search input, and favorite button across different pages.
-- Dynamic metadata for each movie.
-- Animated loader.
+- Consumption of the **TMDB API**.
+- Main page with currently **trending movies**.
+- **Pagination**.
+- **Movie search** by keywords.
+- **Social login** with Google and Twitter using Nextauth.js.
+- Heart-shaped button to **save favorite movies**.
+- Saved movies are stored in a **Firebase database** and displayed on the 'Favorites' page in order of the date they were saved.
+- **Protected routes**:
+  - Only **logged-in users** can save favorites.
+  - If a non-logged-in user tries to access the 'Favorites' tab or clicks on the '♥️' button, they will be **redirected** to the login page.
+- **Details page** with information such as release year, duration, genres, production countries, number of stars, and the same Favorite button.
+- **Reusable components** for movie cards, search input, and favorite button across different pages.
+- **Dynamic metadata** for each movie.
+- **Animated loader**.
 
 ## ⚙️ Technologies
-- Next.js: React framework that enables native route creation and server-side rendering. Together with all React functionalities, it becomes a powerful front-end tool.
-- Nextauth.js: to create user authentication with social login using Google and Twitter (X) providers.
-- TypeScript: ensures type safety, catches errors during development, improves code quality, and increases productivity.
-- Firebase: Cloud Firebase was used, a non-relational database to store data of favorite movies.
-- Tailwind CSS: class-based CSS framework. Used to style components and define flexbox/grid layout.
-- The Movie Database (TMDB) API: API with various endpoints providing images and data of movies.
+- **Next.js**: React framework that enables native route creation and server-side rendering. Together with all React functionalities, it becomes a powerful front-end tool.
+- **Nextauth.js**: to create user authentication with social login using Google and Twitter (X) providers.
+- **TypeScript**: ensures type safety, catches errors during development, improves code quality, and increases productivity.
+- **Firebase**: Cloud Firebase was used, a non-relational database to store data of favorite movies.
+- **Tailwind CSS**: class-based CSS framework. Used to style components and define flexbox/grid layout.
+- **The Movie Database (TMDB) API**: API with various endpoints providing images and data of movies.
+
+## 📁 Project Structure
+The project is organized in the following structure:
+
+```bash
+public/ # Static files, such as images.
+src/
+├── app/ # Main files and routes
+│  ├── api/auth/[...nextauth]/ # Authentication route (NextAuth)
+│  ├── favorites/ # Favorites page
+│  ├── login/ # Login page
+│  ├── movie/[id]/ # Dynamic movie details page
+│  ├── search/[title]/ # Dynamic movie search page
+│  ├── profile/ # User profile page
+│  └── layout.tsx # Main layout
+│  └── loading.tsx # Loading component
+│  └── not-found.tsx # "Not found" page
+│  └── page.tsx # Home page
+├── components/ # Reusable components
+├── services/
+│  └── firebaseConnection.ts # Firebase connection
+├── utils/ # Reusable functions and typings
+│  ├── currency/ # Currency formatting utilities
+│  ├── time/ # Time conversion utilities
+│  ├── types/ # Movie-related types
+```
 
 ## 🚀 How to run the project
 ### Requirements
@@ -157,8 +213,8 @@ npm install
 
 3. Create a .env file at the root of the project and add all your API settings, authentication providers, NextAuth.js, and Firebase configurations:
 ```bash
-NEXT_API_URL=https://api.themoviedb.org/3
-NEXT_IMAGE_URL=https://image.tmdb.org/t/p/original
+NEXT_API_URL=https://api.themoviedb.org/3 # Check the API docs
+NEXT_IMAGE_URL=https://image.tmdb.org/t/p/original # Check the API docs
 NEXT_API_KEY='YOUR_API_KEY_HERE'
 
 NEXTAUTH_URL=http://localhost:3000
